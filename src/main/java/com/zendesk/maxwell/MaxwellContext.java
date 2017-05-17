@@ -263,6 +263,9 @@ public class MaxwellContext {
 			return this.producer;
 
 		switch ( this.config.producerType ) {
+		case "hashdata":
+			this.producer = new HashDataProducer(this, this.config);
+			break;
 		case "file":
 			this.producer = new FileProducer(this, this.config.outputFile);
 			break;
